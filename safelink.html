@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeLink | Score808Pro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 420px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 14px;
+      color: #666;
+    }
+    .btn {
+      display: inline-block;
+      background: #0078ff;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+    .btn:hover {
+      background: #005ec4;
+    }
+    .domain {
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Menuju Link Tujuan</h1>
+    <p>Klik tombol di bawah untuk melanjutkan ke halaman resmi:</p>
+    <p id="preview">🔗 <span class="domain">Memuat...</span></p>
+    <a id="visitBtn" href="#" class="btn" target="_blank" rel="noopener noreferrer">Kunjungi Sekarang</a>
+  </div>
+
+  <script>
+    // Parameter URL (base64)
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedUrl = urlParams.get("url");
+
+    if (encodedUrl) {
+      try {
+        const decodedUrl = atob(encodedUrl); // decode base64
+        const visitBtn = document.getElementById("visitBtn");
+        visitBtn.href = decodedUrl;
+
+        // tampilkan domain untuk preview
+        const urlObj = new URL(decodedUrl);
+        document.querySelector(".domain").textContent = urlObj.hostname;
+      } catch (err) {
+        document.querySelector(".card").innerHTML = "<h1>⚠️ Link tidak valid!</h1>";
+      }
+    } else {
+      document.querySelector(".card").innerHTML = "<h1>⚠️ Parameter URL tidak ditemukan</h1>";
+    }
+  </script>
+</body>
+</html>
