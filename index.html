@@ -302,16 +302,16 @@ img[src^="https://um.simpli.fi/"],img[src^="https://i.liadm.com/"]{display:none}
 </div>
 
 <div class='tabs-container'>
-  <button class='tab-button active' onclick='setTab(this, &apos;semua&apos;)'>Jalalive</button>
-<button class='tab-button' onclick='setTab(this, &apos;news&apos;)'>CH Score808 <span class="badge-indicator"></span></button>
+  <button class='tab-button' onclick='setTab(this, &apos;semua&apos;)'>Jalalive</button>
+<button class='tab-button active' onclick='setTab(this, &apos;news&apos;)'>CH Score808 <span class="badge-indicator"></span></button>
   <button class='tab-button' onclick='setTab(this, &apos;live&apos;)'>Score</button>
 </div>
-<div class='tab-content' id='news' style='display: none;'>
+<div class='tab-content' id='news'>
   <!-- Konten news -->
-<iframe id='score808frame' title='score808' scrolling='no' src='https://official.score808.my.id/p/matchday_3.html' style='width: 100%; border: none;'></iframe>
+<iframe id='score808frame' title='score808' scrolling='no' src='https://score808pro.candil.eu.org/p/score808web.html' style='width: 100%; border: none;'></iframe>
 </div>
 
-<div class='tab-content' id='semua'>
+<div class='tab-content' id='semua' style='display: none;'>
     <div id="live-matches" class="livecard-container">Loading matches...</div>
   <!-- Konten Semua -->
 </div>
